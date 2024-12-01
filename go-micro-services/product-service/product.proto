@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "./productpb";
+
+service ProductService {
+    rpc CheckProductsExist (ProductRequest) returns (ProductResponse);
+}
+
+message ProductRequest {
+    repeated string product_ids = 1;
+}
+
+message ProductResponse {
+    bool all_exist = 1;
+}
